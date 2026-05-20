@@ -215,7 +215,7 @@ links: [{label: "Smile Partners Practice Management workshop series", url: ""},{
     scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
   }`}
 >
-  <img src="/gamut-logo.jpg" alt="Gamut Design" className="h-12 w-auto" />
+  <img src="/gamut-logo.png" alt="Gamut Design" className="h-20 w-auto" />
 </a>
         <div className="flex items-center gap-6 text-sm">
   <a href="#about" className="hover:opacity-70">Our Approach</a>
@@ -279,7 +279,7 @@ links: [{label: "Smile Partners Practice Management workshop series", url: ""},{
     {/* Logo side */}
     <div className="flex justify-center md:justify-end">
       <img
-        src="/gamut-logo.jpg"
+        src="/gamut-logo.png"
         alt="Gamut Design"
         className="w-full max-w-sm h-auto"
       />

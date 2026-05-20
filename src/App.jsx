@@ -163,9 +163,9 @@ skills: ["Needs Analysis", "Stakeholder Interviews", "Onboarding Design", "Desig
     id: "online-learning-production",
     title: "End-to-End Online Learning Production",
     tag: "02 — Build",
-    desc: "From design to delivery — education design, course outlines, instructional design, scripting, visual design, media production, build, and rollout. Branded learning that feels native to your organisation.",
+    desc: "From design to delivery — we manage the end-to-end development of branded learning that feels native to your organisation.",
     introImage: "/build-intro.jpg",
-	skills: ["Articulate Rise", "Adobe Creative Suite", "Thinkific", "ELMO HR & Learning"],
+	skills: ["Education design", "Course outlines", "Instructional Design", "Scripting", "Visual Design", "Media Production", "Articulate Rise", "Adobe Creative Suite", "Thinkific", "ELMO HR & Learning"],
 	links: [
 	    { label: "Annie's Centre's ASD Assessment and Diagnosis course on Thinkific", url: "https://anniescentre.thinkific.com/" },
 	  ],
@@ -178,7 +178,7 @@ skills: ["Needs Analysis", "Stakeholder Interviews", "Onboarding Design", "Desig
     id: "instructional-design",
     title: "High-Quality Instructional Design",
     tag: "03 — Craft",
-    desc: "Designing learning experiences grounded in the latest adult learning and evidence-based theories. We select the learning approaches that serve your learners and organisation best and enable real change.",
+    desc: "Grounded in the latest adult learning and evidence-based theories, we select the learning approaches that serve your learners and your organisation best. This is what makes learning impactful.",
     introImage: "/craft-intro_.jpg",
 links: [,
 	  ],
@@ -195,7 +195,7 @@ links: [,
     tag: "04 — Facilitate",
     desc: "Engaging, outcome-driven workshops designed and delivered for diverse audiences across virtual and in-person formats.",
     introImage: "/facilitate-intro.jpg",
-links: [{label: "Smile Partners Practice Management workshop series", url: ""},{label: "Macquarie Business School Certificate of Financial Markets & Corporate Education", url: ""}
+links: [{label: "Smile Partners Practice Management workshop series", url: "#"},{label: "Macquarie Business School Certificate of Financial Markets & Corporate Education", url: "#"}
 	  ],
 	skills: ["Workshop design outlines", "Facilitator Coaching", "Instructional design", "MS PowerPoint & Teams", "Zoom", "Mentimeter", "Padlet"],
     examples: [

@@ -264,25 +264,23 @@ links: [{label: "Smile Partners Practice Management workshop series", url: ""},{
  {/* HERO */}
 <section id="top" className="max-w-6xl mx-auto px-6 py-20 md:py-28">
   <div className="grid md:grid-cols-2 gap-12 items-center">
-    {/* Text side */}
-    <div>
-
-      <h1 className="text-5xl md:text-5xl lg:text-7xl font-light tracking-tight leading-[1.05] mb-8">
-        Your <span className="italic">learning and development</span> business partner
-      </h1>
-      <p className="mt-6 text-lg md:text-lg font-light text-neutral-800 leading-relaxed">
-       We specialise in building online, blended, and face-to-face learning experiences that grow your people and your business.<br />
-
-      </p>
-    </div>
-
     {/* Logo side */}
-    <div className="flex justify-center md:justify-end">
+    <div className="flex justify-center md:justify-start">
       <img
         src="/gamut-logo.png"
         alt="Gamut Design"
         className="w-full max-w-sm h-auto"
       />
+    </div>
+
+    {/* Text side */}
+    <div>
+      <h1 className="text-5xl md:text-5xl lg:text-7xl font-light tracking-tight leading-[1.05] mb-8">
+        Your <span className="italic">learning and development</span> business partner
+      </h1>
+      <p className="mt-6 text-lg md:text-lg font-light text-neutral-800 leading-relaxed">
+        We specialise in building online, blended, and face-to-face learning experiences that grow your people and your business.
+      </p>
     </div>
   </div>
 </section>
@@ -303,8 +301,8 @@ links: [{label: "Smile Partners Practice Management workshop series", url: ""},{
 Our approach
   </h2>
 <div className="max-w-2xl">
- <p className="mt-6 text-lg md:text-lg font-light text-neutral-800 leading-relaxed">
-    No more generic online content. No pokey animations. No robotic AI voiceovers.  Developing quality learning takes more than good intentions in our information-heavy, fast-paced world.
+ 
+   <p className="mt-6 text-lg md:text-lg font-light text-neutral-800 leading-relaxed"> Developing quality learning takes more than good intentions in our information-heavy, fast-paced world.
   </p>
 
   <p className="mt-6 text-lg md:text-lg text-neutral-1200 leading-relaxed">
@@ -324,7 +322,7 @@ Our approach
     </div>
     <p className="font-mono text-xs text-neutral-500 mb-3">01</p>
     <p className="text-base md:text-lg font-light text-neutral-800 leading-relaxed">
-      Understanding how your learners — and adults — learn best. We use the latest evidence-based approaches to design learning that sticks.
+      Understanding your learners and how they learn best. We use the latest evidence-based approaches to design learning that sticks.
     </p>
   </div>
 
@@ -339,7 +337,7 @@ Our approach
     </div>
     <p className="font-mono text-xs text-neutral-500 mb-3">02</p>
     <p className="text-base md:text-lg font-light text-neutral-800 leading-relaxed">
-      Deep knowledge of your organisation: your culture, your learners, your brand, and your business direction.
+      Understanding your organisation: your culture, your learners, your brand, and your business direction.
     </p>
   </div>
 
@@ -355,7 +353,7 @@ Our approach
     </div>
     <p className="font-mono text-xs text-neutral-500 mb-3">03</p>
     <p className="text-base md:text-lg font-light text-neutral-800 leading-relaxed">
-      Embedding learning into your operational workflows — accessible, seamless, and fit-for-purpose.
+      Embedding learning into your operational workflows making learning consistent, continuous, and seamless.
     </p>
   </div>
 
@@ -369,7 +367,7 @@ Our approach
     </div>
     <p className="font-mono text-xs text-neutral-500 mb-3">04</p>
     <p className="text-base md:text-lg font-light text-neutral-800 leading-relaxed">
-      Human-centred design: modern, high-quality media crafted with care and intention.
+      Maintaining high standards for human-centric design. Ensuring high-quality experiences are crafted with care, intention and accessibility in mind.
     </p>
   </div>
 

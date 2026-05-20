@@ -155,8 +155,8 @@ skills: ["Needs Analysis", "Stakeholder Interviews", "Onboarding Design", "Desig
 	   ,
 	  ],
    examples: [
-      { images: ["/discovery-2.jpg"] },                              // single
-      { images: ["/discovery-1.jpg"] },                              // single
+    { images: ["/discovery-1a.jpg", "/discovery-1b.jpg"] },        // pair  
+    { images: ["/discovery-2a.jpg", "/discovery-2b.jpg"] },        // pair  
     ],
   },
   {
@@ -171,14 +171,14 @@ skills: ["Needs Analysis", "Stakeholder Interviews", "Onboarding Design", "Desig
 	  ],
     examples: [
      { images: ["/build1a.jpg", "/build1b.jpg"] },        // pair
-     { images: ["/build2.jpg"] },                         // single
+     { images: ["/build3a.jpg", "/build3b.jpg"] },        // pair
     ],
   },
   {
     id: "instructional-design",
     title: "High-Quality Instructional Design",
     tag: "03 — Craft",
-    desc: "Designing learning experiences grounded in the latest adult learning theories. We select the learning modalities that serve your learners and organisation best.",
+    desc: "Designing learning experiences grounded in the latest adult learning and evidence-based theories. We select the learning approaches that serve your learners and organisation best and enable real change.",
     introImage: "/craft-intro_.jpg",
 links: [,
 	  ],
@@ -200,7 +200,7 @@ links: [{label: "Smile Partners Practice Management workshop series", url: ""},{
 	skills: ["Workshop design outlines", "Facilitator Coaching", "Instructional design", "MS PowerPoint & Teams", "Zoom", "Mentimeter", "Padlet"],
     examples: [
  	{ images: ["/facilitate-1a.jpg", "/facilitate-1b.jpg"] },        // pair
- 	{ images: ["/craft-2a.jpg", "/craft-2b.jpg"] },        // pair
+ 	
     ],
   },
 ];
@@ -324,7 +324,7 @@ Our approach
     </div>
     <p className="font-mono text-xs text-neutral-500 mb-3">01</p>
     <p className="text-base md:text-lg font-light text-neutral-800 leading-relaxed">
-      Understanding how your learners — and adults — learn best.
+      Understanding how your learners — and adults — learn best. We use the latest evidence-based approaches to design learning that sticks.
     </p>
   </div>
 
@@ -425,7 +425,7 @@ Our work </h2>
       className="w-full rounded-2xl object-cover aspect-square"
     />
     <div className="md:col-span-2 text-xl md:text-2xl font-light leading-relaxed">
-      Sarah is a skilled learning specialist with experience in designing, building and supporting programs a range of organisation types including commercial, not-for-profit, clinical, academic, and small business environments.
+      Sarah is a skilled learning specialist with experience in designing, building and supporting programs for a range of organisation types including commercial, not-for-profit, clinical, academic, and small business environments.
       <br /><br />
       She has an in-depth understanding of adult learning principles and is passionate about inspiring individuals to play to their strengths, become lifelong learners and fulfill their human potential.
     </div>

@@ -169,7 +169,7 @@ function InspirationBox() {
   );
 
   return (
-    <div className="fixed inset-x-0 bottom-[100px] z-50 pointer-events-none">
+    <div className="fixed left-0 right-0 bottom-[100px] z-50 pointer-events-none max-w-[100vw]">
       <div className="max-w-6xl mx-auto px-6 flex justify-end">
         <div className="pointer-events-auto">
           {!open ? (
@@ -435,7 +435,7 @@ links: [{label: "Smile Partners Practice Management workshop series", url: "#"},
     {/* MANIFESTO */}
 
 {/* Full-width peach with gradient fades */}
-<div className="relative bg-[#FFF2E9]">
+<div className="relative bg-[#FFF2E9] overflow-hidden">
   {/* Top fade — white blending down into peach */}
   <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-white to-transparent pointer-events-none" />
   {/* Bottom fade — peach blending down into white */}

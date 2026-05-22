@@ -125,9 +125,140 @@ function Carousel({ capability }) {
   );
 }
 
+function InspirationBox() {
+  const [open, setOpen] = useState(false);
+  const [idx, setIdx] = useState(0);
+
+  const inspirations = [
+    {
+      quote: "Mystery is at the heart of creativity. That, and surprise.",
+      author: "Julia Cameron",
+    },
+    {
+      quote: "The best way to predict the future is to create it.",
+      author: "Abraham Lincoln",
+    },
+    {
+      quote: "You cannot get through a single day without having an impact on the world around you. What you do makes a difference, and you have to decide what kind of difference you want to make.",
+      author: "Jane Goodall",
+    },
+  ];
+
+  const next = () => setIdx((idx + 1) % inspirations.length);
+
+  // Reusable gradient sparkle icon
+  const SparkleIcon = ({ size = 48 }) => (
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none">
+      <defs>
+        <linearGradient id="sparkleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#fbecd6" />
+          <stop offset="25%" stopColor="#f6dcb1" />
+          <stop offset="50%" stopColor="#e8dfe2" />
+          <stop offset="75%" stopColor="#8cb2df" />
+          <stop offset="100%" stopColor="#a480dc" />
+        </linearGradient>
+      </defs>
+      {/* 4-point sparkle/star */}
+      <path
+        d="M50 5 Q52 35 60 42 Q70 48 95 50 Q70 52 60 58 Q52 65 50 95 Q48 65 40 58 Q30 52 5 50 Q30 48 40 42 Q48 35 50 5 Z"
+        fill="url(#sparkleGradient)"
+        stroke="white"
+        strokeWidth="0.5"
+      />
+    </svg>
+  );
+
+  return (
+    <div className="fixed inset-x-0 bottom-[100px] z-50 pointer-events-none">
+      <div className="max-w-6xl mx-auto px-6 flex justify-end">
+        <div className="pointer-events-auto">
+          {!open ? (
+            // FLOATING SPARKLE
+            <button
+              onClick={() => setOpen(true)}
+              className="group relative animate-float"
+              aria-label="Open inspiration box"
+            >
+              {/* Soft glow halo */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#fbecd6] via-[#f6dcb1] via-[#8cb2df] to-[#a480dc] blur-2xl opacity-70 group-hover:opacity-100 transition-opacity rounded-full scale-110" />
+
+              {/* The sparkle */}
+              <div className="relative hover:scale-110 transition-transform duration-300 drop-shadow-xl">
+                <SparkleIcon size={72} />
+              </div>
+
+              {/* Tooltip */}
+              <span className="absolute right-full top-1/2 -translate-y-1/2 mr-4 px-4 py-2 rounded-full bg-white shadow-lg text-xs text-neutral-700 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                Your Inspiration Box
+              </span>
+            </button>
+          ) : (
+            // EXPANDED PANEL
+            <div className="relative animate-float">
+              {/* Soft outer glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#fbecd6] via-[#8cb2df] to-[#a480dc] blur-3xl opacity-60 rounded-3xl" />
+
+              <div className="relative w-80 md:w-96 rounded-3xl overflow-hidden shadow-2xl border border-white/70 backdrop-blur-xl bg-gradient-to-br from-[#fbecd6] via-[#e8dfe2] to-[#a480dc]/40">
+                {/* Header */}
+                <div className="flex items-center justify-between px-6 pt-5">
+                  <div className="flex items-center gap-2">
+                    <SparkleIcon size={24} />
+                    <p className="font-script text-2xl text-neutral-800">
+                      Your Inspiration Box
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setOpen(false)}
+                    className="w-8 h-8 rounded-full bg-white/70 hover:bg-white text-neutral-700 flex items-center justify-center transition text-lg"
+                    aria-label="Close"
+                  >
+                    ×
+                  </button>
+                </div>
+
+                {/* Quote */}
+                <div className="px-6 py-10">
+                  <p className="text-2xl font-script text-neutral-400 leading-none mb-3">"</p>
+                  <p className="text-lg font-light italic text-neutral-800 leading-relaxed">
+                    {inspirations[idx].quote}
+                  </p>
+                  <p className="mt-5 text-xs uppercase tracking-[0.2em] text-neutral-600">
+                    — {inspirations[idx].author}
+                  </p>
+                </div>
+
+                {/* Pagination + Next */}
+                <div className="px-6 pb-5 flex justify-between items-center">
+                  <div className="flex gap-1.5">
+                    {inspirations.map((_, i) => (
+                      <span
+                        key={i}
+                        className={`h-1.5 rounded-full transition-all ${
+                          i === idx ? "w-6 bg-neutral-700" : "w-1.5 bg-neutral-400"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <button
+                    onClick={next}
+                    className="text-xs uppercase tracking-[0.15em] text-neutral-700 hover:text-neutral-900 transition flex items-center gap-1"
+                  >
+                    Next <SparkleIcon size={14} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 export default function App() {
 
   const [scrolled, setScrolled] = useState(false);
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const [slide, setSlide] = useState(0);
 
@@ -207,59 +338,74 @@ links: [{label: "Smile Partners Practice Management workshop series", url: "#"},
 
   return (
     <div className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 transition-colors duration-300">
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 dark:bg-neutral-950/70 border-b border-neutral-200 dark:border-neutral-800">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-     <a
-  href="#top"
-  className={`flex items-center gap-3 transition-opacity duration-500 ${
-    scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
-  }`}
->
-  <img src="/gamut-logo.png" alt="Gamut Design" className="h-20 w-auto" />
-</a>
-        <div className="flex items-center gap-6 text-sm">
-  <a href="#about" className="hover:opacity-70">Our Approach</a>
+     {/* NAV */}
+<nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-neutral-200">
+  <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
-  {/* Work dropdown */}
-  <div className="relative group">
-    <a href="#work" className="hover:opacity-70 inline-flex items-center gap-1">
-      Work
-      <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M3 4.5L6 7.5L9 4.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
+    {/* Logo (fades in on scroll) */}
+    <a
+      href="#top"
+      className={`flex items-center gap-3 transition-opacity duration-500 ${
+        scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+    >
+      <img src="/gamut-logo.png" alt="Gamut Design" className="h-10 md:h-12 w-auto" />
     </a>
-    {/* Invisible hover bridge so menu doesn't close between */}
-    <div className="absolute left-0 top-full h-3 w-full" />
-    <div className="absolute left-0 top-full mt-2 w-72 bg-white border border-neutral-200 rounded-2xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-      <ul className="py-3">
-        <li>
-          <a href="#needs-analysis" className="block px-5 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">
-            Needs Analysis
-          </a>
-        </li>
-        <li>
-          <a href="#online-learning-production" className="block px-5 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">
-            Online Learning Production
-          </a>
-        </li>
-        <li>
-          <a href="#instructional-design" className="block px-5 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">
-            High-Quality Instructional Design
-          </a>
-        </li>
-        <li>
-          <a href="#workshop-delivery" className="block px-5 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900">
-            Workshop Design & Delivery
-          </a>
-        </li>
-      </ul>
+
+    {/* Desktop links */}
+    <div className="hidden md:flex items-center gap-6 text-sm">
+      <a href="#about" className="hover:opacity-70">About</a>
+
+      <div className="relative group">
+        <a href="#work" className="hover:opacity-70 inline-flex items-center gap-1">
+          Work
+          <svg className="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M3 4.5L6 7.5L9 4.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </a>
+        <div className="absolute left-0 top-full h-3 w-full" />
+        <div className="absolute left-0 top-full mt-2 w-72 bg-white border border-neutral-200 rounded-2xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <ul className="py-3">
+            <li><a href="#needs-analysis" className="block px-5 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50">Needs Analysis</a></li>
+            <li><a href="#online-learning-production" className="block px-5 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50">Online Learning Production</a></li>
+            <li><a href="#instructional-design" className="block px-5 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50">Instructional Design</a></li>
+            <li><a href="#workshop-delivery" className="block px-5 py-2.5 text-sm text-neutral-700 hover:bg-neutral-50">Workshop Design & Delivery</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#contact" className="hover:opacity-70">Contact</a>
     </div>
+
+    {/* Mobile hamburger */}
+    <button
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5"
+      aria-label="Toggle menu"
+    >
+      <span className={`block w-6 h-px bg-neutral-800 transition-transform ${menuOpen ? "rotate-45 translate-y-[6px]" : ""}`} />
+      <span className={`block w-6 h-px bg-neutral-800 transition-opacity ${menuOpen ? "opacity-0" : "opacity-100"}`} />
+      <span className={`block w-6 h-px bg-neutral-800 transition-transform ${menuOpen ? "-rotate-45 -translate-y-[6px]" : ""}`} />
+    </button>
   </div>
 
-  <a href="#contact" className="hover:opacity-70">Contact</a>
-</div>
-        </div>
-      </nav>
+  {/* Mobile menu dropdown */}
+  <div
+    className={`md:hidden overflow-hidden transition-all duration-300 bg-white border-t border-neutral-200 ${
+      menuOpen ? "max-h-96" : "max-h-0"
+    }`}
+  >
+    <ul className="px-6 py-4 space-y-3 text-base">
+      <li><a href="#about" onClick={() => setMenuOpen(false)} className="block py-2">About</a></li>
+      <li className="pt-2 pb-1 text-xs uppercase tracking-[0.2em] text-neutral-500">Work</li>
+      <li><a href="#needs-analysis" onClick={() => setMenuOpen(false)} className="block py-1.5 pl-3 text-neutral-700">— Needs Analysis</a></li>
+      <li><a href="#online-learning-production" onClick={() => setMenuOpen(false)} className="block py-1.5 pl-3 text-neutral-700">— Online Learning Production</a></li>
+      <li><a href="#instructional-design" onClick={() => setMenuOpen(false)} className="block py-1.5 pl-3 text-neutral-700">— Instructional Design</a></li>
+      <li><a href="#workshop-delivery" onClick={() => setMenuOpen(false)} className="block py-1.5 pl-3 text-neutral-700">— Workshop Design & Delivery</a></li>
+      <li className="pt-2"><a href="#contact" onClick={() => setMenuOpen(false)} className="block py-2">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
  {/* HERO */}
 <section id="top" className="max-w-6xl mx-auto px-6 py-20 md:py-28">
@@ -320,7 +466,7 @@ Our approach
         <path d="M8 24c2-1 4-1 6 0M40 24c-2-1-4-1-6 0" />
       </svg>
     </div>
-    <p className="font-mono text-xs text-neutral-500 mb-3">01</p>
+    <p className="font-mono text-xs text-neutral-500 mb-3">01 Understanding your learners </p>
     <p className="text-base md:text-lg font-light text-neutral-800 leading-relaxed">
       Understanding your learners and how they learn best. We use the latest evidence-based approaches to design learning that sticks.
     </p>
@@ -335,7 +481,7 @@ Our approach
         <path d="M12 22h6M12 28h6M12 34h6M30 14h6M30 22h6M30 30h6" />
       </svg>
     </div>
-    <p className="font-mono text-xs text-neutral-500 mb-3">02</p>
+    <p className="font-mono text-xs text-neutral-500 mb-3">02 Understanding your organisation </p>
     <p className="text-base md:text-lg font-light text-neutral-800 leading-relaxed">
       Understanding your organisation: your culture, your learners, your brand, and your business direction.
     </p>
@@ -351,7 +497,7 @@ Our approach
         <path d="M18 16l12 0M16 18l6 12M32 18l-6 12" />
       </svg>
     </div>
-    <p className="font-mono text-xs text-neutral-500 mb-3">03</p>
+    <p className="font-mono text-xs text-neutral-500 mb-3">03 Embedding learning </p>
     <p className="text-base md:text-lg font-light text-neutral-800 leading-relaxed">
       Embedding learning into your operational workflows making learning consistent, continuous, and seamless.
     </p>
@@ -365,7 +511,7 @@ Our approach
         <path d="M38 8l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" />
       </svg>
     </div>
-    <p className="font-mono text-xs text-neutral-500 mb-3">04</p>
+    <p className="font-mono text-xs text-neutral-500 mb-3">04 Designing for impact </p>
     <p className="text-base md:text-lg font-light text-neutral-800 leading-relaxed">
       Maintaining high standards for human-centric design. Ensuring high-quality experiences are crafted with care, intention and accessibility in mind.
     </p>
@@ -448,6 +594,7 @@ Our work </h2>
 <span>ABN 33 674 905 074</span>	
         <span>...because humans resonate with humans</span>
       </footer>
-    </div>
+    
+       </div>
   );
 }
